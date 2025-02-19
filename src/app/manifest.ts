@@ -16,7 +16,7 @@ export default function manifest(): MetadataRoute.Manifest {
     prefer_related_applications: false,
     icons: [
       {
-        src: '/favicon-96x96.png',
+        src: '/web-app-manifest-512x512.png',
         sizes: '96x96',
         type: 'image/png',
       },
