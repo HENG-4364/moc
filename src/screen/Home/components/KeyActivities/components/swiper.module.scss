@@ -1,0 +1,27 @@
+/* Add this to your CSS file or inside a <style> tag */
+.mySwiper .swiper-pagination-bullet {
+  background-color: black !important;
+  opacity: 0.8 !important;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  background-color: white !important;
+}
+
+
+.sliderWrapper {
+  :global(.swiper-pagination-bullet) {
+    background-color: #b1b1b1;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: .5rem;
+    opacity: 1;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    background-color: #2980B9;
+    width: 2.2rem;
+    height: 0.5rem;
+    border-radius: .5rem;
+  }
+}

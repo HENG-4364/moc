@@ -1,0 +1,22 @@
+.button {
+  // background-color: black;
+  border: none;
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  transition: background-color 0.4s, transform 0.2s;
+  z-index: 3;
+  border-bottom-right-radius: 15px;
+  width: 0;
+  height: 0;
+  border-bottom: 80px solid #0000009a;
+  border-left: 80px solid transparent;
+
+  .arrow {
+    position: absolute;
+    bottom: -70px;
+    right: 0px;
+    width: 50px;
+  }
+}
