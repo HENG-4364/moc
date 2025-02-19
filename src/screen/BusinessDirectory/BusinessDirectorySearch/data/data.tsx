@@ -1,0 +1,82 @@
+export interface Business {
+  id: string;
+  name: string;
+  rating: number;
+  location: string;
+  image: string;
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
+}
+
+export interface Category {
+  id: string;
+  name: string;
+}
+
+export interface Location {
+  id: string;
+  name: string;
+}
+
+export const categories: Category[] = [
+  { id: "1", name: "Accounting and Finance" },
+  { id: "2", name: "Agricultural and Crafts" },
+  { id: "3", name: "Agriculture Equipment Supply" },
+  { id: "4", name: "Architecture and Decor" },
+  { id: "5", name: "Association" },
+  { id: "6", name: "Automotive and Vehicles" },
+  { id: "7", name: "Banking and Micro Finance" },
+  { id: "8", name: "Beauty Care" },
+  { id: "9", name: "Business and Investment" },
+];
+
+export const locations: Location[] = [
+  { id: "1", name: "Koh Kong" },
+  { id: "2", name: "Kratie" },
+  { id: "3", name: "Mondulkiri" },
+  { id: "4", name: "Oddor Meanchey" },
+  { id: "5", name: "Pailin" },
+  { id: "6", name: "Preah Vihear" },
+  { id: "7", name: "Prey Veng" },
+  { id: "8", name: "Pursat" },
+  { id: "9", name: "Rattanakiri" },
+  { id: "10", name: "Stung Treng" },
+  { id: "11", name: "Svay Rieng" },
+];
+
+export const businesses: Business[] = [
+  {
+    id: "103",
+    name: "DiTech",
+    rating: 5,
+    location: "Phnom Penh",
+    image: "/icons/icon-512x512.png?height=100&width=100",
+    coordinates: { lat: 11.5564, lng: 104.9282 },
+  },
+  {
+    id: "168",
+    name: "Logistics Supply Chains Co., Ltd.",
+    rating: 0,
+    location: "Phnom Penh",
+    image: "/icons/icon-512x512.png?height=100&width=100",
+    coordinates: { lat: 11.5684, lng: 104.9222 },
+  },
+  {
+    id: "168",
+    name: "Winsou Co.,ltd",
+    rating: 5,
+    location: "Phnom Penh",
+    image: "/icons/icon-512x512.png?height=100&width=100",
+    coordinates: { lat: 11.5764, lng: 104.9182 },
+  },
+  {
+    id: "365",
+    name: "Moving Co., Ltd.",
+    rating: 0,
+    location: "Phnom Penh",
+    image: "/icons/icon-512x512.png?height=100&width=100",
+    coordinates: { lat: 11.5464, lng: 104.9382 },
+  },
+];

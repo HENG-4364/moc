@@ -34,7 +34,9 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
       <div className="p-0">
         <div className="flex items-start justify-between mb-4">
           <div className="w-full xl:w-2/3 mb-4 xl:mb-0">
-            <div className="text-xl font-bold mb-1 truncate">{khCompanyName}</div>
+            <div className="text-xl font-bold mb-1 truncate">
+              {khCompanyName}
+            </div>
             <div className="font-bold truncate">{enCompanyName}</div>
           </div>
           <div className="w-full flex justify-end">
@@ -49,11 +51,17 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
         </div>
         <div className="space-y-2">
           <div className="flex flex-wrap">
-            <p>{dict?.contact_number} ៖&nbsp;</p>
+            <p>
+              {dict?.contact_number ? dict?.contact_number : "លេខទំនាក់ទំនង"}{" "}
+              ៖&nbsp;
+            </p>
             <p className="font-bold">{phoneNumber}</p>
           </div>
           <div className="flex flex-wrap">
-            <p>{dict?.type_of_work} ៖&nbsp;</p>
+            <p>
+              {dict?.type_of_work ? dict?.type_of_work : "ប្រភេទការងារ"}{" "}
+              ៖&nbsp;
+            </p>
             <p className="font-bold">{companyType}</p>
           </div>
         </div>
