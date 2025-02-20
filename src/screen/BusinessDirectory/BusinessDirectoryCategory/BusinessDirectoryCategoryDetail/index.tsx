@@ -69,7 +69,7 @@ export default function BusinessDirectoryCategoryDetailScreen() {
     e.preventDefault();
     if (searchTerm.trim()) {
       router.push(
-        `/business-directory/search?q=${encodeURIComponent(searchTerm)}`
+        `/business-directory/category/1?q=${encodeURIComponent(searchTerm)}`
       );
       setIsOpen(false);
     }
@@ -258,8 +258,11 @@ export default function BusinessDirectoryCategoryDetailScreen() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {businesses.map((business) => (
                     <div
+                      onClick={() =>
+                        router.push(`/business-directory/${business.id}`)
+                      }
                       key={business.id}
-                      className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-md transition-shadow"
+                      className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
                     >
                       <div className="h-48 bg-gray-50">
                         <img
@@ -268,7 +271,7 @@ export default function BusinessDirectoryCategoryDetailScreen() {
                             "/icons/icon-512x512.png?height=100&width=100"
                           }
                           alt={business.name}
-                          className="w-full h-full object-contain p-4"
+                          className="w-full h-full object-contain p-2"
                         />
                       </div>
                       <div className="p-4">
@@ -285,8 +288,11 @@ export default function BusinessDirectoryCategoryDetailScreen() {
                           ))}
                         </div>
                         <div className="space-y-2">
-                          <p className="font-medium line-clamp-2">
-                            {business.id} {business.name}
+                          <p className="text-base font-semibold line-clamp-1">
+                            {business.name}
+                          </p>
+                          <p className="font-medium line-clamp-1 text-gray-600">
+                            {business.name_en}
                           </p>
                           <div className="flex items-center text-sm text-gray-500">
                             <MapPin className="w-4 h-4 mr-1" />
@@ -303,15 +309,14 @@ export default function BusinessDirectoryCategoryDetailScreen() {
                 <div className="grid grid-cols-1 md:grid-cols-2  gap-6">
                   {businesses.map((business) => (
                     <CompanyCard
-                      // dict={dict}
                       logoSrc={
                         business.image ||
                         "/icons/icon-512x512.png?height=100&width=100"
                       }
                       companyType={business.location}
-                      enCompanyName={business.name}
-                      khCompanyName="ក្រសួងពាណិជ្ជកម្ម"
-                      link=""
+                      enCompanyName={business.name_en}
+                      khCompanyName={business.name}
+                      link={`/business-directory/${business.id}`}
                       phoneNumber="012 345 678"
                     />
                   ))}

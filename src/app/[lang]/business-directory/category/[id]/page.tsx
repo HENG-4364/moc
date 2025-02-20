@@ -1,4 +1,4 @@
-import BusinessDirectoryCategoryDetailScreen from "@/screen/BusinessDirectory/BusinessDirectoryCategory/BusinessDirectoryDetail";
+import BusinessDirectoryCategoryDetailScreen from "@/screen/BusinessDirectory/BusinessDirectoryCategory/BusinessDirectoryCategoryDetail";
 import React from "react";
 
 const BusinessDirectoryCategoryDetailPage = () => {

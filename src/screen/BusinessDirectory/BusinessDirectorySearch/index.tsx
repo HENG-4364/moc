@@ -248,8 +248,9 @@ export default function BusinessDirectorySearchScreen() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {businesses.map((business) => (
                     <div
+                    onClick={() => router.push(`/business-directory/${business.id}`)}
                       key={business.id}
-                      className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-md transition-shadow"
+                      className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
                     >
                       <div className="h-48 bg-gray-50">
                         <img
@@ -275,7 +276,7 @@ export default function BusinessDirectorySearchScreen() {
                           ))}
                         </div>
                         <div className="space-y-2">
-                          <p className="text-base font-medium line-clamp-1"> {business.name}
+                          <p className="text-base font-semibold line-clamp-1"> {business.name}
                           </p>
                           <p className="font-medium line-clamp-1 text-gray-600">{business.name_en}
                           </p>
@@ -294,7 +295,6 @@ export default function BusinessDirectorySearchScreen() {
                 <div className="grid grid-cols-1 md:grid-cols-2  gap-6">
                   {businesses.map((business) => (
                     <CompanyCard
-                      // dict={dict}
                       logoSrc={
                         business.image ||
                         "/icons/icon-512x512.png?height=100&width=100"
@@ -302,7 +302,7 @@ export default function BusinessDirectorySearchScreen() {
                       companyType={business.location}
                       enCompanyName={business.name_en}
                       khCompanyName={business.name}
-                      link=""
+                      link={`/business-directory/${business.id}`}
                       phoneNumber="012 345 678"
                     />
                   ))}
