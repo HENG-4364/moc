@@ -1,6 +1,7 @@
 export interface Business {
   id: string;
   name: string;
+  name_en: string;
   rating: number;
   location: string;
   image: string;
@@ -49,23 +50,26 @@ export const locations: Location[] = [
 export const businesses: Business[] = [
   {
     id: "103",
-    name: "DiTech",
+    name: "ធនាគារ វឌ្ឍនៈ អាស៊ី ចំកាត់​",
+    name_en: "Advanced Bank of Asia (ABA)",
     rating: 5,
     location: "Phnom Penh",
-    image: "/icons/icon-512x512.png?height=100&width=100",
+    image: "/aba.jpg",
     coordinates: { lat: 11.5564, lng: 104.9282 },
   },
   {
     id: "168",
-    name: "Logistics Supply Chains Co., Ltd.",
+    name: "ធនាគារ អេស៊ីលីដា",
+    name_en: "ACLEDA Bank",
     rating: 0,
     location: "Phnom Penh",
-    image: "/icons/icon-512x512.png?height=100&width=100",
+    image: "/acleda.jpg",
     coordinates: { lat: 11.5684, lng: 104.9222 },
   },
   {
     id: "168",
-    name: "Winsou Co.,ltd",
+    name: "ក្រសួងពាណិជ្ជកម្ម",
+    name_en: "Ministry Of Commerce",
     rating: 5,
     location: "Phnom Penh",
     image: "/icons/icon-512x512.png?height=100&width=100",
@@ -73,10 +77,11 @@ export const businesses: Business[] = [
   },
   {
     id: "365",
-    name: "Moving Co., Ltd.",
+    name: "ធនាគារ វីង",
+    name_en: "Wing Bank",
     rating: 0,
     location: "Phnom Penh",
-    image: "/icons/icon-512x512.png?height=100&width=100",
+    image: "/wing.png",
     coordinates: { lat: 11.5464, lng: 104.9382 },
   },
 ];

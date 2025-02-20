@@ -48,7 +48,7 @@ const business_directory: {
   },
   {
     title: "ប្រភេទអាជីវកម្ម",
-    href: "/business-directory-category",
+    href: "/business-directory/category",
     description:
       "For sighted users to preview content available behind a link.",
   },

@@ -5,7 +5,6 @@ import { Star, MapPin, Search, ListTodo, LayoutGrid } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ScrollArea } from "@/components/ui/scroll-area";
 // import { GoogleMap } from "./google-map";
-import { businesses, categories, locations } from "./data/data";
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -18,7 +17,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
-import CompanyCard from "../components/CompanyCard/CompanyCard";
+import {
+  businesses,
+  categories,
+  locations,
+} from "../../BusinessDirectorySearch/data/data";
+import CompanyCard from "../../components/CompanyCard/CompanyCard";
 const searchItems = [
   "Construction",
   "General pest control (termite control) and vermin control",
@@ -30,7 +34,7 @@ const searchItems = [
   "Construction plastic and construction materials",
 ];
 
-export default function BusinessDirectorySearchScreen() {
+export default function BusinessDirectoryCategoryDetailScreen() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
   const [mapView, setMapView] = useState<"map" | "satellite">("map");
@@ -95,13 +99,19 @@ export default function BusinessDirectorySearchScreen() {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Manufacturing Nationwide</BreadcrumbPage>
+                <BreadcrumbLink href="/business-directory/category">
+                  Catetory
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>ទេសចរណ៍ និងសណ្ឋាគារ</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
         </div>
         <div className="py-4">
-          <div className="text-2xl font-semibold">Manufacturing Nationwide</div>
+          <div className="text-2xl font-semibold">ទេសចរណ៍ និងសណ្ឋាគារ</div>
         </div>
         <div className="flex flex-col lg:flex-row min-h-screen gap-5">
           {/* Sidebar */}
@@ -109,7 +119,7 @@ export default function BusinessDirectorySearchScreen() {
             <ScrollArea className="h-[calc(100vh-2rem)]">
               <div className="space-y-6">
                 {/* Categories */}
-                <div>
+                {/* <div>
                   <h2 className="text-lg font-semibold mb-4 text-blue-900">
                     CATEGORIES
                   </h2>
@@ -138,7 +148,7 @@ export default function BusinessDirectorySearchScreen() {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
 
                 {/* Locations */}
                 <div>
@@ -258,7 +268,7 @@ export default function BusinessDirectorySearchScreen() {
                             "/icons/icon-512x512.png?height=100&width=100"
                           }
                           alt={business.name}
-                          className="w-full h-full object-contain p-2"
+                          className="w-full h-full object-contain p-4"
                         />
                       </div>
                       <div className="p-4">
@@ -275,9 +285,8 @@ export default function BusinessDirectorySearchScreen() {
                           ))}
                         </div>
                         <div className="space-y-2">
-                          <p className="text-base font-medium line-clamp-1"> {business.name}
-                          </p>
-                          <p className="font-medium line-clamp-1 text-gray-600">{business.name_en}
+                          <p className="font-medium line-clamp-2">
+                            {business.id} {business.name}
                           </p>
                           <div className="flex items-center text-sm text-gray-500">
                             <MapPin className="w-4 h-4 mr-1" />
@@ -300,8 +309,8 @@ export default function BusinessDirectorySearchScreen() {
                         "/icons/icon-512x512.png?height=100&width=100"
                       }
                       companyType={business.location}
-                      enCompanyName={business.name_en}
-                      khCompanyName={business.name}
+                      enCompanyName={business.name}
+                      khCompanyName="ក្រសួងពាណិជ្ជកម្ម"
                       link=""
                       phoneNumber="012 345 678"
                     />

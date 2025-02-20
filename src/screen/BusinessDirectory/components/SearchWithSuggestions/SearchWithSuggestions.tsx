@@ -66,7 +66,7 @@ export function SearchWithSuggestions({ dict }: { dict: any }) {
   return (
     <div className="relative w-full h-[450px] pt-20 flex justify-center text-center bg-[url('/business-directory-search-banner.png')] bg-center bg-no-repeat bg-cover">
       <div className="absolute inset-0 bg-black bg-opacity-20" />
-      <div className="z-10 text-white p-5 w-full max-w-6xl mx-auto">
+      <div className=" text-white p-5 w-full max-w-6xl mx-auto">
         <h1 className="mb-5 text-4xl font-bold">ស្វែងរកអាជីវកម្ម</h1>
         <div className="w-full" ref={containerRef}>
           <form onSubmit={handleSubmit} className="relative">
