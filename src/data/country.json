@@ -1,0 +1,24 @@
+{
+  "country": [
+    {
+      "code": "01",
+      "name_en": "Cambodia",
+      "name_kh": "កម្ពុជា"
+    },
+    {
+      "code": "02",
+      "name_en": "Thai",
+      "name_kh": "ថៃ"
+    },
+    {
+      "code": "03",
+      "name_en": "Lao",
+      "name_kh": "ឡាវ"
+    },
+    {
+      "code": "04",
+      "name_en": "Vietnam",
+      "name_kh": "វៀណាម"
+    }
+  ]
+}
