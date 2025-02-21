@@ -17,12 +17,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
+import Select from "react-select";
 import {
   businesses,
   categories,
   locations,
 } from "../../BusinessDirectorySearch/data/data";
 import CompanyCard from "../../components/CompanyCard/CompanyCard";
+import { getCommune, getDistrict, getProvince, getVillage } from "@/hooks/provinces";
 const searchItems = [
   "Construction",
   "General pest control (termite control) and vermin control",
@@ -43,7 +45,17 @@ export default function BusinessDirectoryCategoryDetailScreen() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [changeView, setChangeView] = useState("list");
   const router = useRouter();
-
+  const [province, setProvince] = useState<any>();
+  const [district, setDistrict] = useState<any>();
+  const [commune, setCommune] = useState<any>();
+  const [villageOrGroup, setVillageOrGroup] = useState<any>();
+  const dict = {
+    choose_type_of_business: "Choose type of business",
+    province: "Province",
+    district: "District",
+    commune: "Commune",
+    village: "Village",
+  };
   const filteredResults = useMemo(() => {
     if (!searchTerm) return [];
     return searchItems.filter((item) =>
@@ -116,7 +128,7 @@ export default function BusinessDirectoryCategoryDetailScreen() {
         <div className="flex flex-col lg:flex-row min-h-screen gap-5">
           {/* Sidebar */}
           <div className="w-full lg:w-[300px] py-4 border-r">
-            <ScrollArea className="h-[calc(100vh-2rem)]">
+            <div className="">
               <div className="space-y-6">
                 {/* Categories */}
                 {/* <div>
@@ -155,34 +167,89 @@ export default function BusinessDirectoryCategoryDetailScreen() {
                   <h2 className="text-lg font-semibold mb-4 text-blue-900">
                     LOCATIONS
                   </h2>
-                  <div className="">
-                    {locations.map((location) => (
-                      <div
-                        key={location.id}
-                        className="flex items-center hover:bg-gray-50 p-2 rounded cursor-pointer"
+                  <div className="grid grid-cols-1 px-3 space-y-2 ">
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="province"
+                        className="block text-sm font-medium text-gray-700"
                       >
-                        <Checkbox
-                          id={`location-${location.id}`}
-                          checked={selectedLocations.includes(location.id)}
-                          onCheckedChange={(checked: any) =>
-                            handleLocationChange(
-                              location.id,
-                              checked as boolean
-                            )
-                          }
-                        />
-                        <label
-                          htmlFor={`location-${location.id}`}
-                          className="ml-2 text-sm cursor-pointer"
-                        >
-                          {location.name}
-                        </label>
-                      </div>
-                    ))}
+                        {dict?.province}
+                      </label>
+                      <Select
+                        id="province"
+                        options={getProvince()}
+                        onChange={setProvince}
+                        value={province}
+                        isClearable={true}
+                        placeholder={dict?.province}
+                        className="react-select-container"
+                        classNamePrefix="react-select"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="district"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        {dict?.district}
+                      </label>
+                      <Select
+                        id="district"
+                        options={getDistrict(province?.value)}
+                        onChange={setDistrict}
+                        value={district}
+                        isClearable={true}
+                        placeholder={dict?.district}
+                        isDisabled={!province}
+                        className="react-select-container"
+                        classNamePrefix="react-select"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="commune"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        {dict?.commune}
+                      </label>
+                      <Select
+                        id="commune"
+                        options={getCommune(district?.value)}
+                        onChange={setCommune}
+                        value={commune}
+                        isClearable={true}
+                        placeholder={dict?.commune}
+                        isDisabled={!district}
+                        className="react-select-container"
+                        classNamePrefix="react-select"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="village"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        {dict?.village}
+                      </label>
+                      <Select
+                        id="village"
+                        options={getVillage(commune?.value)}
+                        onChange={setVillageOrGroup}
+                        value={villageOrGroup}
+                        isClearable={true}
+                        placeholder={dict?.village}
+                        isDisabled={!commune}
+                        className="react-select-container"
+                        classNamePrefix="react-select"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </ScrollArea>
+            </div>
           </div>
 
           {/* Main Content */}
