@@ -18,52 +18,52 @@ const businessCategories = [
   {
     id: 1,
     cardTitle: "Restaurants",
-    thumbnail: "/logo.png",
+    thumbnail: "/category/c1.png",
   },
   {
     id: 2,
     cardTitle: "Health & Wellness",
-    thumbnail: "/logo.png",
+    thumbnail: "/category/c2.png",
   },
   {
     id: 3,
     cardTitle: "Education",
-    thumbnail: "/logo.png",
+    thumbnail: "/category/c3.png",
   },
   {
     id: 4,
     cardTitle: "Real Estate",
-    thumbnail: "/logo.png",
+    thumbnail: "/category/c4.png",
   },
   {
     id: 5,
     cardTitle: "Technology",
-    thumbnail: "/logo.png",
+    thumbnail: "/category/c5.png",
   },
   {
     id: 6,
     cardTitle: "Automotive",
-    thumbnail: "/logo.png",
+    thumbnail: "/category/c6.png",
   },
   {
     id: 7,
     cardTitle: "Finance",
-    thumbnail: "/logo.png",
+    thumbnail: "/category/c7.png",
   },
   {
     id: 8,
     cardTitle: "Entertainment",
-    thumbnail: "/logo.png",
+    thumbnail: "/category/c8.png",
   },
   {
     id: 9,
     cardTitle: "Retail & Shopping",
-    thumbnail: "/logo.png",
+    thumbnail: "/category/c9.png",
   },
   {
     id: 10,
     cardTitle: "Hospitality",
-    thumbnail: "/logo.png",
+    thumbnail: "/category/c10.png",
   },
 ];
 

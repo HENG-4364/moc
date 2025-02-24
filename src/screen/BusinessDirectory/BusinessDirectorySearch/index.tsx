@@ -1,7 +1,14 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Star, MapPin, Search, ListTodo, LayoutGrid } from "lucide-react";
+import {
+  Star,
+  MapPin,
+  Search,
+  ListTodo,
+  LayoutGrid,
+  Filter,
+} from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ScrollArea } from "@/components/ui/scroll-area";
 // import { GoogleMap } from "./google-map";
@@ -26,6 +33,7 @@ import {
   getProvince,
   getVillage,
 } from "@/hooks/provinces";
+import { FilterDrawer } from "./Components/FilterDrawer";
 const searchItems = [
   "Construction",
   "General pest control (termite control) and vermin control",
@@ -88,16 +96,16 @@ export default function BusinessDirectorySearchScreen() {
       setIsOpen(false);
     }
   };
-  const handleCategoryChange = (categoryId: string, checked: boolean) => {
-    setSelectedCategories((prev) =>
-      checked ? [...prev, categoryId] : prev.filter((id) => id !== categoryId)
-    );
-  };
+  // const handleCategoryChange = (categoryId: string, checked: boolean) => {
+  //   setSelectedCategories((prev) =>
+  //     checked ? [...prev, categoryId] : prev.filter((id) => id !== categoryId)
+  //   );
+  // };
 
-  const handleLocationChange = (locationId: string, checked: boolean) => {
-    setSelectedLocations((prev) =>
-      checked ? [...prev, locationId] : prev.filter((id) => id !== locationId)
-    );
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const handleCategoryChange = (categoryId: string) => {
+    setSelectedCategory(categoryId);
+    console.log("Selected category:", categoryId);
   };
 
   return (
@@ -123,7 +131,7 @@ export default function BusinessDirectorySearchScreen() {
         </div>
         <div className="flex flex-col lg:flex-row min-h-screen gap-5">
           {/* Sidebar */}
-          <div className="w-full lg:w-[300px] py-4 border-r">
+          <div className="hidden lg:block w-full lg:w-[300px] py-4 border-r">
             <div className="">
               <div className="space-y-6">
                 {/* Categories */}
@@ -139,12 +147,9 @@ export default function BusinessDirectorySearchScreen() {
                       >
                         <Checkbox
                           id={`category-${category.id}`}
-                          checked={selectedCategories.includes(category.id)}
-                          onCheckedChange={(checked: any) =>
-                            handleCategoryChange(
-                              category.id,
-                              checked as boolean
-                            )
+                          checked={selectedCategory === category.id}
+                          onCheckedChange={() =>
+                            handleCategoryChange(category.id)
                           }
                         />
                         <label
@@ -303,23 +308,39 @@ export default function BusinessDirectorySearchScreen() {
             </div>
             {/* Business Listings */}
             <div className="">
-              <h2 className="text-xl font-semibold ">Top 20 business</h2>
-              <div className="flex flex-row gap-1 justify-end mb-5 ">
-                <div
-                  className="cursor-pointer p-2 bg-white rounded-lg shadow-sm hover:shadow-md hover:bg-gray-50 duration-300 transition-all"
-                  onClick={() => setChangeView("list")}
-                >
-                  <ListTodo />
-                </div>
-                <div
-                  className="cursor-pointer p-2 bg-white rounded-lg shadow-sm hover:shadow-md hover:bg-gray-50 duration-300 transition-all"
-                  onClick={() => setChangeView("grid")}
-                >
-                  <LayoutGrid />
+              <h2 className="text-xl font-semibold  mb-5 ">Top 20 business</h2>
+              <div className="flex flex-row gap-1 justify-between lg:justify-end items-center mb-5 ">
+                <FilterDrawer
+                  handleCategoryChange={handleCategoryChange}
+                  setSelectedCategory={setSelectedCategory}
+                  selectedCategory={selectedCategory}
+                  setProvince={setProvince}
+                  setDistrict={setDistrict}
+                  setCommune={setCommune}
+                  setVillageOrGroup={setVillageOrGroup}
+                  province={province}
+                  district={district}
+                  commune={commune}
+                  villageOrGroup={villageOrGroup}
+                  dict={dict}
+                />
+                <div className="flex flex-row gap-1">
+                  <div
+                    className="cursor-pointer p-2 bg-white rounded-lg shadow-sm hover:shadow-md hover:bg-gray-50 duration-300 transition-all"
+                    onClick={() => setChangeView("list")}
+                  >
+                    <ListTodo />
+                  </div>
+                  <div
+                    className="cursor-pointer p-2 bg-white rounded-lg shadow-sm hover:shadow-md hover:bg-gray-50 duration-300 transition-all"
+                    onClick={() => setChangeView("grid")}
+                  >
+                    <LayoutGrid />
+                  </div>
                 </div>
               </div>
               {changeView === "grid" && (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                   {businesses.map((business) => (
                     <div
                       onClick={() =>

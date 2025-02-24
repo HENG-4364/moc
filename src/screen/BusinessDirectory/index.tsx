@@ -10,6 +10,7 @@ import { SearchWithSuggestions } from "./components/SearchWithSuggestions/Search
 import { JoinSection } from "./components/Banner/BannerSwiper";
 import CompanyCardPlaceholder from "./components/CompanyCard/CompanyCardPlaceholder";
 import CompanyCard from "./components/CompanyCard/CompanyCard";
+import { businesses } from "./BusinessDirectorySearch/data/data";
 const fakeCompanies = [
   {
     khCompanyName: "ក្រុមហ៊ុន អេកូស៊ីស្ទឹម",
@@ -81,7 +82,7 @@ function BusinessDirectoryContent({ dict }: { dict: any }) {
           </Button>
         </div>
 
-        {!fakeCompanies ? (
+        {!businesses ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[...Array(6)].map((_, index) => (
               <CompanyCardPlaceholder key={index} />
@@ -89,9 +90,20 @@ function BusinessDirectoryContent({ dict }: { dict: any }) {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {fakeCompanies?.length > 0 ? (
-              fakeCompanies?.map((item: any, idx: number) => (
-                <CompanyCard key={idx} {...item} />
+            {businesses?.length > 0 ? (
+              businesses?.map((business: any, idx: number) => (
+                <CompanyCard
+                  key={idx}
+                  logoSrc={
+                    business.image ||
+                    "/icons/icon-512x512.png?height=100&width=100"
+                  }
+                  companyType={business.location}
+                  enCompanyName={business.name_en}
+                  khCompanyName={business.name}
+                  link={`/business-directory/${business.id}`}
+                  phoneNumber="012 345 678"
+                />
               ))
             ) : (
               <div className="col-span-full flex flex-col items-center justify-center">
@@ -117,7 +129,7 @@ function BusinessDirectoryContent({ dict }: { dict: any }) {
         )}
       </div>
 
-      <JoinSection/>
+      <JoinSection />
     </section>
   );
 }
