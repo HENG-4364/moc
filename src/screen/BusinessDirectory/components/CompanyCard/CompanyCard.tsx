@@ -33,7 +33,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
     >
       <div className="p-0">
         <div className="flex items-start justify-between mb-4">
-          <div className="w-full xl:w-2/3 mb-4 xl:mb-0">
+          <div className="w-2/3 mb-4 xl:mb-0">
             <div className="text-xl font-bold mb-1 truncate">
               {khCompanyName}
             </div>
