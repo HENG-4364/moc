@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SwiperCard from "../components/Banner/components/swiper";
 import { JoinSection } from "../components/Banner/BannerSwiper";
+import { businesses } from "../BusinessDirectorySearch/data/data";
 
 export default function BusinessDirectoryDetailScreen() {
   return (
@@ -189,25 +190,27 @@ export default function BusinessDirectoryDetailScreen() {
                   People Also Looked for
                 </h3>
                 <div className="space-y-4">
-                  {[1, 2, 3].map((i) => (
+                  {businesses.map((business, idx) => (
                     <Link
-                      key={i}
-                      href="#"
-                      className="flex gap-4 hover:bg-gray-50"
+                      key={idx}
+                      href="/business-directory/1"
+                      className="flex gap-4 hover:bg-gray-50 "
                     >
-                      <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md bg-gray-200">
+                      <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md bg-gray-200/30">
                         <Image
-                          src="/placeholder.svg?height=64&width=64"
+                          src={business.image || "/placeholder.svg"}
                           alt="Business"
                           width={64}
                           height={64}
                           className="h-full w-full object-cover"
                         />
                       </div>
-                      <div>
-                        <h4 className="font-medium">Business Name</h4>
+                      <div className="py-1">
+                        <h4 className=" text-base font-semibold">
+                          {business?.name}
+                        </h4>
                         <p className="text-sm text-gray-600">
-                          Location details
+                          {business?.name_en}
                         </p>
                       </div>
                     </Link>

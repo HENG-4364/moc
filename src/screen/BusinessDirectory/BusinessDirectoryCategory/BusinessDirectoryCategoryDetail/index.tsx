@@ -38,6 +38,7 @@ import {
   getVillage,
 } from "@/hooks/provinces";
 import { FilterDrawer } from "./Components/FilterDrawer";
+import { JoinSection } from "../../components/Banner/BannerSwiper";
 const searchItems = [
   "Construction",
   "General pest control (termite control) and vermin control",
@@ -131,7 +132,7 @@ export default function BusinessDirectoryCategoryDetailScreen() {
         <div className="py-4">
           <div className="text-2xl font-semibold">ទេសចរណ៍ និងសណ្ឋាគារ</div>
         </div>
-        <div className="flex flex-col lg:flex-row min-h-screen gap-5">
+        <div className="flex flex-col lg:flex-row gap-5">
           {/* Sidebar */}
           <div className="hidden lg:block w-full lg:w-[300px] py-4 border-r">
             <div className="space-y-6">
@@ -310,7 +311,7 @@ export default function BusinessDirectoryCategoryDetailScreen() {
                 </div>
               </div>{" "}
               {changeView === "grid" && (
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
                   {businesses.map((business) => (
                     <div
                       onClick={() =>
@@ -380,6 +381,7 @@ export default function BusinessDirectoryCategoryDetailScreen() {
           </div>
         </div>
       </div>
+      <JoinSection />
     </section>
   );
 }
