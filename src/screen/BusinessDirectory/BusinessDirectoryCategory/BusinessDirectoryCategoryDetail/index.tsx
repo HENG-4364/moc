@@ -320,14 +320,14 @@ export default function BusinessDirectoryCategoryDetailScreen() {
                       key={business.id}
                       className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
                     >
-                      <div className="h-48 bg-gray-50">
+                      <div className=" bg-gray-50">
                         <img
                           src={
                             business.image ||
                             "/icons/icon-512x512.png?height=100&width=100"
                           }
                           alt={business.name}
-                          className="w-full h-full object-contain p-2"
+                          className="w-full h-full object-contain p-3"
                         />
                       </div>
                       <div className="p-4">

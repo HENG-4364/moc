@@ -111,12 +111,12 @@ export default function BusinessDirectoryDetailScreen() {
                     >
                       Business Info
                     </TabsTrigger>
-                    <TabsTrigger
+                    {/* <TabsTrigger
                       value="reviews"
                       className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#2980B9]"
                     >
                       Reviews
-                    </TabsTrigger>
+                    </TabsTrigger> */}
                     <TabsTrigger
                       value="photos"
                       className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#2980B9]"

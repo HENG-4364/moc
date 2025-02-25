@@ -241,8 +241,8 @@ export default function MobileNav() {
           </AccordionItem>
         </Accordion>
 
-        <div className="flex justify-center">
-          <div className="fixed bottom-4 flex space-x-4">
+        <div className="absolute bottom-0 right-0 left-0">
+          <div className="mb-4">
             <div className="flex justify-center mt-3">
               <Link href="https://www.facebook.com/moc.gov.kh" target="_blank">
                 <div
