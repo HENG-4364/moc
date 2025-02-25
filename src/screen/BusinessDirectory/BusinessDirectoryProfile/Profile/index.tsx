@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-import { Camera } from "lucide-react";
+import { Camera, Loader2 } from "lucide-react";
 
 interface FormData {
   lastName: string;
@@ -140,7 +140,7 @@ export default function EditProfile() {
               <div className="space-y-2">
                 <Label htmlFor="phone">លេខទូរស័ព្ទ</Label>
                 <Input
-                disabled
+                  disabled
                   id="phone"
                   type="tel"
                   value={formData.phone}
@@ -153,11 +153,24 @@ export default function EditProfile() {
           </div>
         </div>
 
-        <div className="flex justify-end">
-          <Button type="submit" disabled={isLoading}>
+        <div className="flex justify-end ">
+          <Button
+            type="submit"
+            className="w-full md:w-auto hover:bg-primary"
+            disabled={isLoading}
+          >
+            {isLoading && <Loader2 className="mr-2 size-4 animate-spin" />}
             ធ្វើបច្ចុប្បន្នភាព
           </Button>
         </div>
+        {/* <Button
+          className="w-full hover:bg-primary"
+          type="submit"
+          disabled={isLoading || !isFormValid}
+        >
+          {isLoading && <Loader2 className="mr-2 size-4 animate-spin" />}
+          ផ្លាស់ប្ដូរពាក្យសម្ងាត់
+        </Button> */}
       </form>
     </div>
   );

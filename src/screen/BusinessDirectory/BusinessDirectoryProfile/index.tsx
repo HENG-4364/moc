@@ -54,7 +54,7 @@ export default function BusinessDirectoryProfileScreen() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="h-6 border-orange-300 text-orange-500 hover:text-orange-400"
+                  className="h-5 text-xs border-orange-300 text-orange-500 hover:text-orange-400"
                 >
                   Upgrade Account
                 </Button>
@@ -93,7 +93,7 @@ export default function BusinessDirectoryProfileScreen() {
                   value="bussiness"
                   className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-primary"
                 >
-                  Business Directory
+                  Business 
                 </TabsTrigger>
                 <TabsTrigger
                   value="profile"
