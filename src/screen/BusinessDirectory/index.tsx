@@ -116,7 +116,7 @@ function BusinessDirectoryContent({ dict }: { dict: any }) {
                       "/icons/icon-512x512.png?height=100&width=100"
                     }
                     alt={business.name}
-                    className="w-full h-full object-contain py-2"
+                    className="w-full h-full object-contain p-2"
                   />
                 </div>
                 <div className="p-4">
