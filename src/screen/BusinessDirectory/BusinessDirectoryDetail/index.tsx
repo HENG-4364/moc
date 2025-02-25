@@ -32,7 +32,7 @@ export default function BusinessDirectoryDetailScreen() {
                 <Link href="#" className="underline hover:text-slate-300">
                   click here
                 </Link>{" "}
-                to claim it now and unlock the page's full features!
+                to register!
               </div>
             </div>
             {/* Business Info */}
@@ -190,7 +190,7 @@ export default function BusinessDirectoryDetailScreen() {
                   People Also Looked for
                 </h3>
                 <div className="space-y-4">
-                  {businesses.map((business, idx) => (
+                  {businesses.slice(0, 5).map((business, idx) => (
                     <Link
                       key={idx}
                       href="/business-directory/1"

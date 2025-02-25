@@ -31,7 +31,7 @@ export function JoinSection() {
                   </Button>
                   <Button
                     className="border"
-                    onClick={() => router.push("/business-directory/sign-up")}
+                    onClick={() => router.push("/business-directory/register")}
                   >
                     ចុះឈ្មោះឥឡូវនេះ
                   </Button>
