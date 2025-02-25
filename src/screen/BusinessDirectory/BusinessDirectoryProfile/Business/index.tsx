@@ -8,6 +8,7 @@ export default function Business() {
         <div className="text-center font-semibold">
           គណនីរបស់អ្នកកំពុងត្រួតពិនិត្យ!
         </div>
+        
         {/* <p className="text-center text-muted-foreground">
           មិនទាន់អនុញ្ញាតចុះការផ្សាយពាណិជ្ជកម្ម
         </p> */}
