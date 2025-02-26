@@ -159,7 +159,7 @@ export default function Business() {
 
               <div>
                 <Label>ម៉ោងធ្វើការ</Label>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-4 mt-2">
                   <div>
                     <Label htmlFor="started_date">From</Label>
                     <TimePicker />
