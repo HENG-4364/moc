@@ -90,7 +90,7 @@ export default function Business() {
         </div>
       </div> */}
 
-      <h1 className="mb-4 text-xl font-semibold">ពត៌មានផ្ទាល់ខ្លួន</h1>
+      <h1 className="mb-4 text-xl font-semibold">ពត៌មានអាជីវកម្ម</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-6">
           <div className="pt-6">
