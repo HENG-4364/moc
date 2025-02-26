@@ -62,7 +62,7 @@ function BusinessDirectoryContent({ dict }: { dict: any }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("q");
-  const [changeView, setChangeView] = useState("list");
+  const [changeView, setChangeView] = useState("grid");
   return (
     <section className="bg-[#F6F7F8]">
       <div className="mb-8">

@@ -53,7 +53,7 @@ export default function BusinessDirectorySearchScreen() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [changeView, setChangeView] = useState("list");
+  const [changeView, setChangeView] = useState("grid");
   const router = useRouter();
   const [province, setProvince] = useState<any>();
   const [district, setDistrict] = useState<any>();

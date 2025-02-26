@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
-import { Menu, Search } from "lucide-react";
+import { LogOut, Menu, Search, User } from "lucide-react";
 import {
   Sheet,
   SheetClose,
@@ -15,6 +15,14 @@ import {
 } from "@/components/ui/sheet";
 import MobileNav from "../SubNavbar/Components/MobileNav/MobileNav";
 import { useParams, usePathname, useRouter } from "next/navigation";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const params = useParams<{ lang: string }>();
@@ -54,6 +62,7 @@ const Navbar = () => {
                 />
               </Link>
             </div>
+
             <div className="flex items-start gap-3 cursor-pointer">
               <div>
                 <div className="pe-3 " onClick={onHandleChangeLanguage}>
@@ -70,8 +79,62 @@ const Navbar = () => {
                   />
                 </div>
               </div>
-              <div onClick={()=>router.push("/search")}>
-                <Search size={26} color="white" />
+              {!pathname.startsWith(`/${lang}/business-directory`) && (
+                <div onClick={() => router.push("/search")}>
+                  <Search size={26} color="white" />
+                </div>
+              )}
+
+              <div>
+                {pathname.startsWith(`/${lang}/business-directory`) && (
+                  <>
+                    <div className="relative">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger className="flex items-center space-x-2 focus:outline-none">
+                          <Avatar className="w-7 h-7">
+                            <AvatarImage
+                              src={"/aupp.png"}
+                              alt="user pic"
+                              className="object-cover"
+                            />
+                            <AvatarFallback className="text-black">
+                              {"CJ"}
+                            </AvatarFallback>
+                          </Avatar>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent
+                          className="w-52 mt-2 p-3 shadow-md bg-white border rounded-md"
+                          align="end"
+                        >
+                          <div className="text-sm font-medium">
+                            Calvin Jameson
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            calvin.jameson@gmail.com
+                          </div>
+                          <div className="border-t my-2" />
+                          <DropdownMenuItem>
+                            <Link
+                              href="/business-directory/profile"
+                              className="flex items-center space-x-2 w-full"
+                            >
+                              <User size={20} />
+                              <span>គណនី</span>
+                            </Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <div // onClick={handleLogOut}
+                              className="flex items-center space-x-2 w-full text-red-500 cursor-pointer"
+                            >
+                              <LogOut size={20} />
+                              <span>ចាកចេញ</span>
+                            </div>
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </div>
+                  </>
+                )}
               </div>
               <div>
                 <Sheet>
@@ -112,7 +175,7 @@ const Navbar = () => {
                   priority
                 />
               </Link>
-            </div> 
+            </div>
           </div>
         </div>
       </div>

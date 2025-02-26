@@ -13,7 +13,14 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { CreditCard, Keyboard, Search, Settings, User } from "lucide-react";
+import {
+  CreditCard,
+  Keyboard,
+  LogOut,
+  Search,
+  Settings,
+  User,
+} from "lucide-react";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
@@ -22,18 +29,12 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useEffect, useState } from "react";
 import SubMenuHover from "./Components/MouseHover";
 import { useParams, usePathname, useRouter } from "next/navigation";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const business_directory: {
   title: string;
@@ -292,6 +293,50 @@ export function SubNavbar() {
                 strokeLinecap="round"
               ></line>
             </svg>
+            {pathname.startsWith(`/${lang}/business-directory`) && (
+              <>
+                <div className="relative">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="flex items-center space-x-2 focus:outline-none">
+                      <Avatar className="w-8 h-8">
+                        <AvatarImage
+                          src={"/aupp.png"}
+                          alt="user pic"
+                          className="object-cover"
+                        />
+                        <AvatarFallback className="text-black">
+                          {"CJ"}
+                        </AvatarFallback>
+                      </Avatar>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-64 mt-2 p-3 shadow-md bg-white border rounded-md">
+                      <div className="text-sm font-medium">Calvin Jameson</div>
+                      <div className="text-xs text-gray-500">
+                        calvin.jameson@gmail.com
+                      </div>
+                      <div className="border-t my-2" />
+                      <DropdownMenuItem>
+                        <Link
+                          href="/business-directory/profile"
+                          className="flex items-center space-x-2 w-full"
+                        >
+                          <User size={20} />
+                          <span>គណនី</span>
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <div // onClick={handleLogOut}
+                          className="flex items-center space-x-2 w-full text-red-500 cursor-pointer"
+                        >
+                          <LogOut size={20} />
+                          <span>ចាកចេញ</span>
+                        </div>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+              </>
+            )}
             <div>
               <DropdownMenu modal>
                 <DropdownMenuTrigger asChild>
