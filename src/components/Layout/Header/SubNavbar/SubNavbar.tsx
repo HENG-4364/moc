@@ -316,13 +316,15 @@ export function SubNavbar() {
                       </div>
                       <div className="border-t my-2" />
                       <DropdownMenuItem>
-                        <Link
-                          href="/business-directory/profile"
+                        <div
+                          onClick={() =>
+                            router.push("/business-directory/profile")
+                          }
                           className="flex items-center space-x-2 w-full"
                         >
                           <User size={20} />
                           <span>គណនី</span>
-                        </Link>
+                        </div>
                       </DropdownMenuItem>
                       <DropdownMenuItem>
                         <div // onClick={handleLogOut}
