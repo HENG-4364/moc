@@ -52,8 +52,6 @@ const searchItems = [
 
 export default function BusinessDirectoryCategoryDetailScreen() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
-  const [mapView, setMapView] = useState<"map" | "satellite">("map");
   const [searchTerm, setSearchTerm] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);

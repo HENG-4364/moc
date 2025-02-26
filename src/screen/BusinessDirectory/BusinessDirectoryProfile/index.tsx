@@ -1,4 +1,10 @@
-import { Badge, BadgeCheck, Search } from "lucide-react";
+import {
+  AlertTriangle,
+  Badge,
+  BadgeCheck,
+  CircleAlert,
+  Search,
+} from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -14,6 +20,7 @@ import {
 import ChangePassword from "./settings";
 import EditProfile from "./Profile";
 import Business from "./Business";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export default function BusinessDirectoryProfileScreen() {
   return (
@@ -88,35 +95,53 @@ export default function BusinessDirectoryProfileScreen() {
             </div>
 
             <Tabs defaultValue="bussiness" className="px-6">
-              <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0">
+              <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0 gap-5">
                 <TabsTrigger
                   value="bussiness"
-                  className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-primary"
+                  className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-primary relative"
                 >
-                  Business 
+                  Business
+                  <CircleAlert
+                    className="absolute -top-1 -right-1.5 bg-orange-50 rounded-full w-6 h-6 p-1"
+                    color="orange"
+                  />
                 </TabsTrigger>
                 <TabsTrigger
                   value="profile"
-                  className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-primary"
+                  className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-primary relative"
                 >
                   Profile
+                  <CircleAlert
+                    className="absolute -top-1 -right-1.5 bg-orange-50 rounded-full w-6 h-6 p-1"
+                    color="orange"
+                  />
                 </TabsTrigger>
                 <TabsTrigger
                   value="settings"
-                  className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-primary"
+                  className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-primary relative"
                 >
                   Settings
+                  {/* <CircleAlert
+                    className="absolute -top-1 -right-1.5 bg-orange-50 rounded-full w-6 h-6 p-1"
+                    color="orange"
+                  /> */}
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="bussiness" className="py-6">
-                <div className="flex flex-col items-center justify-center py-12">
+                <div className="">
                   <Business />
                 </div>
               </TabsContent>
               <TabsContent value="profile" className="py-6">
-                <div className="">
-                  <EditProfile />
-                </div>
+                <Alert variant="default" className="border-none bg-orange-100/40 p-3 ">
+                  <AlertTitle className="">
+                    <div className="flex items-center gap-2 text-orange-400">
+                      <AlertTriangle className="h-6 w-6 text-warning" />
+                      <div>គណនីរបស់អ្នកកំពុងត្រួតពិនិត្យ!</div>
+                    </div>
+                  </AlertTitle>
+                </Alert>
+                <EditProfile />
               </TabsContent>
               <TabsContent value="settings" className="py-6">
                 <div className="max-w-md">
