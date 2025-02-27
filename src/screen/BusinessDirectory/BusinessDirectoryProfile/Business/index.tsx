@@ -17,6 +17,17 @@ import {
   getVillage,
 } from "@/hooks/provinces";
 import { TimePicker } from "./components/TimePicker";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Facebook, Youtube, MessageCircle, Clapperboard } from "lucide-react";
+import { FaFacebookF, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { FaTelegramPlane } from "react-icons/fa";
+
 interface FormData {
   lastName: string;
   firstName: string;
@@ -53,6 +64,28 @@ export default function Business() {
   const [district, setDistrict] = useState<any>();
   const [commune, setCommune] = useState<any>();
   const [villageOrGroup, setVillageOrGroup] = useState<any>();
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [currentPlatform, setCurrentPlatform] = useState<string>("");
+  const [socialLinks, setSocialLinks] = useState<Record<string, string>>({
+    facebook: "",
+    youtube: "",
+    telegram: "",
+    tiktok: "",
+  });
+
+  const handleIconClick = (platform: string) => {
+    setCurrentPlatform(platform);
+    setShowModal(true);
+  };
+
+  const handleSaveLink = () => {
+    setShowModal(false);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSocialLinks({ ...socialLinks, [currentPlatform]: e.target.value });
+  };
+
   const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -360,6 +393,81 @@ export default function Business() {
                     setFormData((prev) => ({ ...prev, phone: e.target.value }))
                   }
                 />
+              </div>
+              <div className="space-y-4">
+                <Label>តំណភ្ជាប់បណ្តាញសង្គម</Label>
+                <div className="flex mt-3">
+                  <div>
+                    <div
+                      onClick={() => handleIconClick("facebook")}
+                      className={`flex items-center justify-center w-[35px] h-[35px] rounded-full cursor-pointer  bg-[#3F71BA]`}
+                    >
+                      <FaFacebookF color="white" size={25} />
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      onClick={() => handleIconClick("youtube")}
+                      className={`mx-3 flex items-center justify-center w-[35px] h-[35px] rounded-full cursor-pointer bg-[#1A1A1A]`}
+                    >
+                      <FaXTwitter color="white" size={25} />
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      onClick={() => handleIconClick("telegram")}
+                      className={`me-3 flex items-center justify-center w-[35px] h-[35px] rounded-full cursor-pointer  bg-[#FE0000]`}
+                    >
+                      <FaYoutube color="white" size={25} />
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      onClick={() => handleIconClick("tiktok")}
+                      className={`flex items-center justify-center w-[35px] h-[35px] rounded-full cursor-pointer  bg-[#5499FF]`}
+                    >
+                      <FaTelegramPlane color="white" size={25} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Dialog */}
+                <Dialog open={showModal} onOpenChange={setShowModal}>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>
+                        បញ្ចូលតំណភ្ជាប់គណនី{" "}
+                        {currentPlatform.charAt(0).toUpperCase() +
+                          currentPlatform.slice(1)}{" "}
+                      </DialogTitle>
+                    </DialogHeader>
+                    <div className="space-y-4 py-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="socialMediaLink">តំណភ្ជាប់ (URL)</Label>
+                        <Input
+                          id="socialMediaLink"
+                          type="text"
+                          value={socialLinks[currentPlatform] || ""}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                    <DialogFooter>
+                      <Button
+                        variant="outline"
+                        onClick={() => setShowModal(false)}
+                      >
+                        ត្រឡប់ក្រោយ
+                      </Button>
+                      <Button
+                        className="hover:bg-primary"
+                        onClick={handleSaveLink}
+                      >
+                        រក្សាទុក
+                      </Button>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
           </div>
