@@ -27,6 +27,7 @@ import {
 import { Facebook, Youtube, MessageCircle, Clapperboard } from "lucide-react";
 import { FaFacebookF, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
+import MapInterface from "../../components/GoogleMap";
 
 interface FormData {
   lastName: string;
@@ -468,6 +469,11 @@ export default function Business() {
                     </DialogFooter>
                   </DialogContent>
                 </Dialog>
+              </div>
+
+              <div className="space-y-4">
+                <Label>តំណភ្ជាប់បណ្តាញសង្គម</Label>
+                <MapInterface />
               </div>
             </div>
           </div>
