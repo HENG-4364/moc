@@ -28,6 +28,8 @@ import { Facebook, Youtube, MessageCircle, Clapperboard } from "lucide-react";
 import { FaFacebookF, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
 import MapInterface from "../../components/GoogleMap";
+import CropImageUpload from "@/components/UploadCrop/upload-image-crop";
+import { MultiUpload } from "@/components/MultiUpload/MultiUpload";
 
 interface FormData {
   lastName: string;
@@ -73,7 +75,25 @@ export default function Business() {
     telegram: "",
     tiktok: "",
   });
+  const [ba, setBa] = useState<string | null>(null);
+  const [croppedBanner, setCroppedBanner] = useState<string | null>(null);
+  const [fileNameBaner, setFileBanner] = useState("")
+  const handleCropBannerDone = (croppedBanner: string) => {
+    setCroppedBanner(croppedBanner);
+    setBa(null);
 
+  };
+
+  const handleCropBannerCancel = () => {
+    setBa(null);
+  };
+
+  const [businessImages, setBusinessImage] = useState<File[]>([]);
+  const handleFileUpload = (files?: File[] | undefined) => {
+    if (files) {
+      setBusinessImage(files)
+    }
+  };
   const handleIconClick = (platform: string) => {
     setCurrentPlatform(platform);
     setShowModal(true);
@@ -474,6 +494,25 @@ export default function Business() {
               <div className="space-y-4">
                 <Label>តំណភ្ជាប់បណ្តាញសង្គម</Label>
                 <MapInterface />
+              </div>
+              <div className="space-y-4">
+                <Label>តំណភ្ជាប់បណ្តាញសង្គម</Label>
+                <CropImageUpload
+                  isBanner={true}
+                  isWidth="100%"
+                  isHeight="100%"
+                  image={ba}
+                  handleCropCancel={handleCropBannerCancel}
+                  handleCropDone={handleCropBannerDone}
+                  fileName={fileNameBaner}
+                  croppedImage={croppedBanner}
+                  setCroppedImage={setCroppedBanner}
+                  setImage={setBa}
+                  setFile={setFileBanner} />
+              </div>
+              <div className="space-y-4">
+                <Label>តំណភ្ជាប់បណ្តាញសង្គម</Label>
+                <MultiUpload onFileUpload={handleFileUpload} />
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import ImageCropper from "@/components/UplaodCrop/image-cropper";
+import ImageCropper from "@/components/UplaodCrop1/image-cropper";
 import { useState } from "react";
 
 export default function Page() {
