@@ -3,7 +3,7 @@
 import type React from "react";
 import { useState, useCallback } from "react";
 import Cropper from "react-easy-crop";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 // import { gql, useMutation } from "@apollo/client";
 type ImageCropperProps = {
@@ -102,13 +102,13 @@ const ImageCropper: React.FC<ImageCropperProps> = ({
       const croppedImage = await getCroppedImg(image, croppedAreaPixels);
       if (croppedImage) {
         const uploadedFile = urlToFile(croppedImage, fileName, fileName)
-        try {
-          // const { data } = await uploadMutation({ variables: { file: uploadedFile } });
-          // setFinalURL(data.singleUpload.url);
+        // try {
+        //   const { data } = await uploadMutation({ variables: { file: uploadedFile } });
+        //   setFinalURL(data.singleUpload.url);
 
-        } catch (error) {
-          console.error(error);
-        }
+        // } catch (error) {
+        //   console.error(error);
+        // }
 
       }
       setCroppedImage(croppedImage);
@@ -172,15 +172,17 @@ const ImageCropper: React.FC<ImageCropperProps> = ({
   return (
     <div className="flex flex-col h-[80vh] bg-background">
       <div className="relative flex-1">
-        <Dialog open={showCropModal}>
-          <DialogContent className="max-w-lg">
-            <DialogHeader>
-              <DialogTitle>Upload Image</DialogTitle>
-            </DialogHeader>
-            <div className="relative w-full h-[500px]">
-              {!croppedImage ? (
+        {!croppedImage ? (
+          <Dialog open={showCropModal}>
+            <DialogContent className="[&>button]:hidden">
+              <DialogHeader >
+                <DialogTitle>Upload Image</DialogTitle>
+              </DialogHeader>
+              <div className="relative w-full h-[500px]">
+
                 <Cropper
                   image={image}
+                  // aspect={aspectRatio}
                   aspect={isLogo ? 1 / 1 : isBanner ? 3 / 1 : 4 / 3}
                   crop={crop}
                   zoom={zoom}
@@ -188,41 +190,70 @@ const ImageCropper: React.FC<ImageCropperProps> = ({
                   onZoomChange={setZoom}
                   onCropComplete={onCropComplete}
                   objectFit="contain"
-                  classes={{
-                    containerClassName: "bg-transparent",
-                    mediaClassName: "bg-transparent",
-                  }}
                   style={{
+                    containerStyle: {
+                      width: "100%",
+                      height: "100%",
+                      position: "relative",
+                      background: "!transparent",
+                    },
                     cropAreaStyle: {
                       border: "2px solid white",
+                      color: "rgba(0, 0, 0, 0.73)",
+                    },
+                    mediaStyle: {
+                      background: "!transparent",
                     },
                   }}
+                  classes={{
+                    containerClassName: "!bg-transparent",
+                    mediaClassName: "!bg-transparent",
+                  }}
                 />
-              ) : (
-                <div className="text-center">
-                  <img
-                    src={croppedImage || "/placeholder.svg"}
-                    alt="Cropped"
-                    className="w-full object-contain"
-                  />
-                  <p className="mt-3 font-bold">Image Name: {fileName}</p>
-                </div>
-              )}
-            </div>
-            <div className="flex justify-end gap-2 mt-4">
-              <Button variant="secondary" onClick={onCropCancel}>
-                Cancel
-              </Button>
-              {croppedImage ? (
-                <Button onClick={() => onCropDone(finalURL, fileName)}>
-                  Save
+              </div>
+              <div className="flex justify-end gap-2 mt-4">
+                <Button variant="secondary" onClick={onCropCancel}>
+                  Cancel
                 </Button>
-              ) : (
+
                 <Button onClick={showCroppedImage}>Apply</Button>
-              )}
-            </div>
-          </DialogContent>
-        </Dialog>
+              </div>
+            </DialogContent>
+          </Dialog>
+        ) : (
+          <Dialog open={showCropModal}>
+            <DialogContent className="[&>button]:hidden">
+              <DialogHeader >
+                <DialogTitle>Upload Image</DialogTitle>
+              </DialogHeader>
+              <div style={{ position: "relative", width: "100%", height: "auto" }}>
+                {croppedImage && (
+                  <div className="text-center">
+                    <img
+                      src={croppedImage || "/placeholder.svg"}
+                      alt="Cropped"
+                      className="max-w-full max-h-full object-contain"
+                      style={{ width: "100%" }}
+                    />
+                    {/* <p className=" mt-3 " >Image Name: <span style={{ fontWeight: "bold" }}>{newFileName}</span></p> */}
+                  </div>
+                )}
+              </div>
+              <DialogFooter>
+                <div className="flex justify-end gap-2 mt-4">
+                  <Button variant="secondary" onClick={onCropCancel}>
+                    Cancel
+                  </Button>
+                  <Button onClick={() => onCropDone(finalURL, fileName)}>
+                    Save
+                  </Button>
+
+                </div>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        )}
+
       </div>
     </div>
   );

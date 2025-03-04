@@ -3,7 +3,7 @@ import { useState } from "react"
 import { X, File, Image, FileText, Film, Music, Archive, Code } from "lucide-react"
 import { Card, CardContent } from "../ui/card"
 import { Button } from "../ui/button"
-import { Dialog, DialogContent } from "../ui/dialog"
+import { Dialog, DialogContent, DialogHeader } from "../ui/dialog"
 import { Progress } from "../ui/progress"
 
 interface FilePreviewProps {
@@ -53,22 +53,22 @@ export function FilePreview({ file, progress, status, onRemove }: FilePreviewPro
       <CardContent className="text-center">
         {file.type.startsWith("image/") ? (
           <>
-            <Button variant="ghost" onClick={handlePreview} className="my-5 ">
+            <div onClick={handlePreview} className="flex justify-center my-5 cursor-pointer ">
               <img
                 src={previewUrl || URL.createObjectURL(file)}
                 alt={file.name}
                 className="rounded-md object-cover w-20 h-20"
               />
-            </Button>
-            <Dialog open={showModal} onOpenChange={setShowModal}>
-              <DialogContent className="flex justify-center">
-                <Button
+            </div>
+            <Dialog open={showModal} onOpenChange={setShowModal} >
+              <DialogContent className="flex justify-center rounded-md"  >
+                {/* <Button
                   variant="ghost"
                   onClick={() => setShowModal(false)}
                   className="absolute top-5 right-5 bg-red-100 text-red-600 rounded-full p-1"
                 >
                   <X size={18} />
-                </Button>
+                </Button> */}
                 <img src={previewUrl || URL.createObjectURL(file)} alt={file.name} className="max-w-full max-h-screen" />
               </DialogContent>
             </Dialog>
@@ -82,6 +82,6 @@ export function FilePreview({ file, progress, status, onRemove }: FilePreviewPro
         {status === "error" && <span className="text-red-500">✗</span>}
         {progress > 0 && progress < 100 && <Progress value={progress} className="mt-2" />}
       </CardContent>
-    </Card>
+    </Card >
   )
 }
