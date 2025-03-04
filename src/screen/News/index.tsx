@@ -16,6 +16,9 @@ import {
   convertToLatinNumber,
 } from "@/function/DayNumberToKhmerNumber";
 import { parseImageUrl } from "@/function/parseImage";
+import { useQuery } from "@apollo/client";
+import { NEWS_QUERY } from "@/graphql/News/Query/get-news-list-query";
+import { settings } from "@/lib/settings";
 const newsTypes = [
   {
     id: "all",
@@ -167,6 +170,22 @@ function NewsScreen({ dict }: Props) {
   const pathname = usePathname();
   const params = useParams<{ lang: string }>();
   const lang = params?.lang;
+  const { data, loading, refetch } = useQuery(NEWS_QUERY, {
+    variables: {
+      filter: {
+        status: "PUBLISHED",
+      },
+      pagination: {
+        page: 1,
+        size: 15,
+      },
+      lazyLoading: {
+        limit: 15,
+      },
+      websiteId: settings.websiteId,
+      newsCategoryId: 1 || 0,
+    },
+  });
 
   const updateArrows = () => {
     if (scrollContainerRef.current) {
@@ -213,22 +232,14 @@ function NewsScreen({ dict }: Props) {
       push(`${window.location.origin}/${pathname}?${params}`);
     }
   };
+  // if (loading || !data) return <></>;
+  console.log(data);
+
   return (
     <section className="blog-section pt-50 pb-70">
       <div className="container">
         <Title title={"ព័ត៌មានប្រចាំថ្ងៃ"} />
         <div className="relative">
-          {/* Left Arrow */}
-          {/* {showLeftArrow && (
-            <button
-              onClick={() => scroll("left")}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 h-full rounded-l-lg bg-gray-200"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-          )} */}
-
-          {/* Scrollable Area */}
           <div
             ref={scrollContainerRef}
             className="flex flex-wrap gap-3 p-2 scrollbar-hide rounded-md"
@@ -237,11 +248,10 @@ function NewsScreen({ dict }: Props) {
             {newsTypes.map((type) => (
               <button
                 key={type.id}
-                className={`rounded-md ${
-                  activeCategory === type.id
-                    ? "bg-gradient-to-b from-[#2980B9] to-[#24648f] text-white"
-                    : "bg-gray-200"
-                } px-2 py-2 text-md`}
+                className={`rounded-md ${activeCategory === type.id
+                  ? "bg-gradient-to-b from-[#2980B9] to-[#24648f] text-white"
+                  : "bg-gray-200"
+                  } px-2 py-2 text-md`}
                 onClick={() => (
                   setActiveCategory(type.id), setSelect(type.id, "1")
                 )}
@@ -250,26 +260,15 @@ function NewsScreen({ dict }: Props) {
               </button>
             ))}
           </div>
-
-          {/* Right Arrow */}
-          {/* {showRightArrow && (
-            <button
-              onClick={() => scroll("right")}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 h-full rounded-r-lg bg-gray-200"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-          )} */}
         </div>
         {showLeftArrow && showRightArrow && (
           <>
             <div className="flex justify-end gap-2 mt-2 mb-5">
               <button
-                className={`p-2 rounded-full shadow-md ${
-                  !showLeftArrow
-                    ? "bg-gray-50 hover:bg-gray-50"
-                    : "bg-gray-100 hover:bg-gray-200"
-                }`}
+                className={`p-2 rounded-full shadow-md ${!showLeftArrow
+                  ? "bg-gray-50 hover:bg-gray-50"
+                  : "bg-gray-100 hover:bg-gray-200"
+                  }`}
                 onClick={() => scroll("left")}
               >
                 <ChevronLeft
@@ -277,11 +276,10 @@ function NewsScreen({ dict }: Props) {
                 />
               </button>
               <button
-                className={`p-2 rounded-full shadow-md ${
-                  !showRightArrow
-                    ? "bg-gray-50 hover:bg-gray-50"
-                    : "bg-gray-100 hover:bg-gray-200"
-                }`}
+                className={`p-2 rounded-full shadow-md ${!showRightArrow
+                  ? "bg-gray-50 hover:bg-gray-50"
+                  : "bg-gray-100 hover:bg-gray-200"
+                  }`}
                 onClick={() => scroll("right")}
               >
                 <ChevronRight
@@ -308,41 +306,36 @@ function NewsScreen({ dict }: Props) {
                     lang === "kh"
                       ? category?.name
                       : category?.name_en
-                      ? category?.name_en
-                      : category?.name
+                        ? category?.name_en
+                        : category?.name
                   }
                   categoryLink={category?.id}
                   date={
                     getDate
-                      ? `${
-                          lang === "kh"
-                            ? getDate[0]
-                            : convertToLatinNumber(getDate[0])
-                        }-${
-                          lang === "kh"
-                            ? getDate[1]
-                            : convertLatinMonth(getDate[1])
-                        }`
+                      ? `${lang === "kh"
+                        ? getDate[0]
+                        : convertToLatinNumber(getDate[0])
+                      }-${lang === "kh"
+                        ? getDate[1]
+                        : convertLatinMonth(getDate[1])
+                      }`
                       : ""
                   }
                   description={
                     lang === "kh"
                       ? item?.summary
                       : item?.summary_en
-                      ? item?.summary_en
-                      : item?.summary
+                        ? item?.summary_en
+                        : item?.summary
                   }
-                  image={parseImageUrl(
-                    item.thumbnail ? item.thumbnail : "/placeholder-image.jpg",
-                    "1280x850"
-                  )}
+                  image={item.thumbnail ? item.thumbnail : "/placeholder-image.jpg"}
                   link={`/news/${item?.id}/`}
                   title={
                     lang === "kh"
                       ? item?.title
                       : item?.title_en
-                      ? item?.title_en
-                      : item?.title
+                        ? item?.title_en
+                        : item?.title
                   }
                 />
               </div>

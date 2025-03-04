@@ -3,6 +3,7 @@ import "./globals.css";
 import { Layout } from "@/components/Layout";
 import { Hanuman, Moul } from "next/font/google";
 import { PWAInstallPrompt } from "@/components/pwa-install-prompt";
+import ApolloWrapper from "@/components/Layout/ApolloWrapper";
 
 const hanuman = Hanuman({
   subsets: ["latin"],
@@ -25,10 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${hanuman.className} ${moul.className}`}>
-        <Layout>
-          {children}
-          <PWAInstallPrompt />
-        </Layout>
+        <ApolloWrapper >
+          <Layout>
+            {children}
+            <PWAInstallPrompt />
+          </Layout>
+        </ApolloWrapper>
       </body>
     </html>
   );

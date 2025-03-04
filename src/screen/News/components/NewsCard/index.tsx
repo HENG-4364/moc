@@ -36,13 +36,13 @@ export default function NewsCard({
   return (
     <div className="bg-white shadow-xl rounded-lg border-none">
       <a href={link} className="block text-white">
-        <div className="relative rounded-t-lg overflow-hidden">
+        <div className="relative rounded-t-lg overflow-hidden h-[280px]">
           <Image
             src={image}
-            className="w-full h-auto object-cover "
+            className="w-full h-full object-cover "
             alt="Card Image"
-            width={1000}
-            height={1000}
+            width={500}
+            height={500}
           />
           {date && (
             <span className="absolute top-4 right-6 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
