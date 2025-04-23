@@ -1,0 +1,53 @@
+.card {
+  position: relative;
+  border: none;
+  overflow: hidden;
+  border-radius: 8px; // Adjust based on your preference
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  min-height: 270px;
+  object-fit: cover;
+  filter: brightness(0.7); // Darkens the image to make text more readable
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 10px; // Adjust padding as needed
+  background-color: rgba(0, 0, 0, 0.3); // Semi-transparent overlay
+  color: white;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.logo {
+  font-size: 16px; // Adjust based on the logo/icon size you prefer
+  margin-right: 10px; // Space between logo and title
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  max-width: 95%; // Adjust the max width as needed
+  line-height: 1.5; // Control line height for text wrapping
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // Limits the title to 2 lines
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}

@@ -1,0 +1,33 @@
+.btn_news_loadmore {
+  display: inline-block;
+  padding: 13px 30px;
+  color: #fff;
+  text-transform: capitalize;
+  background-color: #1e5d86;
+  border: 1px solid #1e5d86;
+  transition: 0.5s;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #fff;
+    color: #2980b9;
+  }
+}
+
+
+.official_document_sidebar_nav {
+  background: #E7F1FE;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.official_document_navlink_active {
+  background-color: #2980b9 !important;
+  color: #fff !important;
+
+}

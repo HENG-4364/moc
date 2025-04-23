@@ -1,0 +1,103 @@
+{
+  "search_placeholder": "Search...",
+  "swal_text": "Please fill in to search...",
+  "head_title": "Ministry of Commerce | moc.gov.kh",
+  "banner_title": "Welcome to Ministry of Commerce",
+  "banner_title_description": "Welcome to the Ministry of Commerce, and thank you for visiting our website. I am pleased to inform you that the mission of the Ministry is to provide the public with all services related to commerce, new markets, and to continue implementing Cambodia's trade policies for the great benefit of development.",
+  "banner_items": {
+    "automation_services": "Automation Services",
+    "economic_indicators": "Economic Indicators",
+    "key_activities": "Key Activities"
+  },
+  "button": "Read More",
+  "announcements_title": "Public Announcement",
+  "title": "New fuel retail price to be implemented from 21 to 31 August 2023",
+  "description": "Release Date: August 21, 2023",
+  "automation_list_title": "Online Services",
+  "key_economic_indicators_title": "Economic Indicators",
+  "key_activities_title": "Key Activities",
+  "key_activities": {
+    "title": "Activities",
+    "events": "Events"
+  },
+  "official_documents_title": "Official Documents",
+  "tpye_of_faq": "Type of FAQ",
+  "faq_title": "FAQ",
+  "type_faq": "Tpye of FAQ",
+  "layout": {
+    "welcome": "Welcome to the Ministry of Commerce and thank you for visiting our website. I am pleased to inform you that the Ministry's mission is to provide the public with all trade-related services, new markets, and to continue to implement Cambodia's trade policy for the greater good of development.",
+    "social": "Social Media: Ministry of Commerce",
+    "key_link": {
+      "key_link_title": "Key Links",
+      "aboutus": "About Ministry",
+      "official_documents": "Official documents",
+      "daily_ommodity_price": "Daily Commodity Price",
+      "consumer_price_index": "Consumer Price Index"
+    },
+    "other_link": {
+      "other_link_title": "Other Links",
+      "business_registration": "Business Registration",
+      "ecommerce_licensing": "Business license",
+      "cambodiaip": "Intellectual Property",
+      "setfo": "Setfo",
+      "co": "CO Automation",
+      "gdi": "General Department of Identification"
+    },
+    "contact": {
+      "contact_title": "Contact",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address"
+    },
+    "copyright": "© 2024 Ministry of Commerce. All rights reserved by",
+    "moc": "Ministry of Commerce",
+    "terms_of_usage": "Terms & Condition",
+    "privacy_policy": "Privacy Policy"
+  },
+  "navbar": {
+    "choose_languages": "Language",
+    "social_media": "Social Media",
+    "search": "Search...",
+    "home_page": "Home",
+    "news": "News",
+    "faq": "FAQ",
+    "business_info": "Business Information",
+    "business_service": "Business Services",
+    "company_registration": "Company Registration",
+    "trademark_registration": "Trademark Registration",
+    "business_information": "Business Information",
+    "business_directory_menu": "Business Directory",
+    "business_directory": "Business Directory",
+    "business_directory_category": "Business Directory Category",
+    "province": "Provincial Department"
+  },
+  "hot_news": {
+    "published_date": "Published Date",
+    "day": "",
+    "month": "",
+    "year": "",
+    "read_more": "Read More"
+  },
+  "key_economic_indicators": {
+    "date": "Published Date",
+    "source": "source",
+    "top_export_label": "Potential Export",
+    "top_export_value": "Products",
+    "top_import_label": "Import/Export Major",
+    "top_import_value": "Products",
+    "consumer_price_index": "Consumer Price Index",
+    "gasoline_price_index_label": "Gasoline Price Index",
+    "gasoline_price_index_value": "Price",
+    "top_export_import_product_modal": {
+      "title": "Top 20 Export-Import Product Modal",
+      "export": "Export Products",
+      "import": "Import Products",
+      "table": {
+        "khmer_name": "Khmer Name",
+        "english_name": "English Name",
+        "total_value": "Total Value",
+        "close_btn": "Close"
+      }
+    }
+  }
+}

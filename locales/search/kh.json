@@ -1,0 +1,21 @@
+{
+  "head_title": "ស្វែងរក | moc.gov.kh",
+  "pagination": {
+    "showing": "បង្ហាញ",
+    "to": "ដល់",
+    "of": "នៃ"
+  },
+  "title": "លទ្ធផលស្វែងរក",
+  "new_category": "ព័ត៌មាន",
+  "empty_search": "មិនមានទិន្នន័យ",
+  "news_empty_search": "គ្មានព័ត៌មាន",
+  "doc_empty_search": "គ្មានឯកសារ",
+  "search_title": "ស្វែងរក...",
+  "search_btn": "ស្វែងរក",
+  "general_title": "ស្វែងរកព័ត៌មាន និងឯកសារផ្លូវការ",
+  "swal_text": "សូមបំពេញព័ត៌មានដើម្បីស្វែងរក...",
+  "search": {
+    "news_title": "លទ្ធផលស្វែងរកព័ត៌មានសម្រាប់",
+    "doc_title": "លទ្ធផលស្វែងឯកសារសម្រាប់"
+  }
+}

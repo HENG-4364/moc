@@ -1,0 +1,137 @@
+.main_minister_info {
+  background: #F8FCFF;
+  // padding-bottom: 50px;
+}
+
+.font_fam {
+  font-size: 36px;
+  line-height: normal;
+  color: #202647;
+  margin: 0 0 25px;
+  position: relative;
+  padding-bottom: 25px;
+  font-family: "Moul";
+  text-transform: uppercase;
+
+  @media (max-width: 1000px) {
+    font-size: 26px;
+  }
+
+  @media screen and (max-width: 992px) {
+    font-size: 23px;
+    margin-top: 40px;
+    padding-bottom: 5px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 5px;
+  }
+}
+
+.font_fam_en {
+  font-weight: 800 !important;
+  font-size: 36px;
+  line-height: normal;
+  color: #202647;
+  margin: 0 0 25px;
+  position: relative;
+  padding-bottom: 25px;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 992px) {
+    font-size: 23px;
+    margin-top: 40px;
+    padding-bottom: 5px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 5px;
+  }
+}
+
+
+.next-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.bannerContainer {
+  height: auto;
+}
+
+.minister_info {
+  .minister_tilte {
+    font-weight: 700 !important;
+    font-size: 30px;
+    color: #202647;
+    margin: 0 0 5px;
+    position: relative;
+
+    @media screen and (max-width: 992px) {
+      font-size: 23px;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 5px;
+    }
+  }
+
+  .minister_des {
+    font-size: 20px;
+    color: #202647;
+    margin: 0 0 5px;
+    position: relative;
+
+    @media screen and (max-width: 992px) {
+      font-size: 18px;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 5px;
+    }
+  }
+}
+
+.messages_tilte {
+  font-weight: 700 !important;
+  font-size: 36px;
+
+  @media (max-width: 1000px) {
+    font-size: 26px;
+  }
+
+  @media screen and (max-width: 992px) {
+    font-size: 23px;
+    margin-top: 40px;
+    padding-bottom: 5px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 5px;
+  }
+
+}
+
+.messages_paragraph1 {
+  margin-top: 17px;
+  line-height: 2;
+}
+
+.messages_paragraph2 {
+  margin-top: 17px;
+  line-height: 2;
+}
+
+.messages_paragraph3 {
+  margin-top: 17px;
+  line-height: 2;
+}
+
+.messages_paragraph4 {
+  margin-top: 17px;
+  line-height: 2;
+}

@@ -1,0 +1,15 @@
+{
+  "head_title": "News | moc.gov.kh",
+  "read_more": "Read More",
+  "title": "Daily News",
+  "all": "All",
+  "news_detail": {
+    "public_date": "Public Date",
+    "day": "Day",
+    "month": "Month",
+    "year": "Year",
+    "share": "Share",
+    "type_of_news": "Type of News",
+    "latest_news": "Latest News"
+  }
+}

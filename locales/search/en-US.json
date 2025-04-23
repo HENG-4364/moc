@@ -1,0 +1,21 @@
+{
+  "head_title": "Search | moc.gov.kh",
+  "pagination": {
+    "showing": "Showing",
+    "to": "to",
+    "of": "of"
+  },
+  "title": "Results of Search ",
+  "new_category": "News",
+  "empty_search": "No Data",
+  "news_empty_search": "No Data",
+  "doc_empty_search": "No Data",
+  "search_title": "Search...",
+  "search_btn": "Search",
+  "general_title": "Searching for News and Official Documents",
+  "swal_text": "Please fill in to search...",
+  "search": {
+    "news_title": "Search results of news for",
+    "doc_title": "Search results of documents for"
+  }
+}

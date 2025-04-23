@@ -1,0 +1,27 @@
+{
+  "showing": "Showing",
+  "sub_navbar": {
+    "home": "Home",
+    "about_ministry": "About Ministry",
+    "business_services": "Business Services",
+    "business_information": "Business Information",
+    "news": "News",
+    "business_directory": "Business Directory",
+    "social_media": "Social Media"
+  },
+  "footer": {
+    "welcome_message": "Welcome to the Ministry of Commerce and thank you for visiting our website. I am pleased to inform you that the Ministry's mission is to provide the public with all trade-related services, new markets, and to continue to implement Cambodia's trade policy for the greater good of development.",
+    "social_title": "Social Media: Ministry of Commerce",
+    "key_link_title": "Key Links",
+    "key_link": {
+      "about_ministry": "About Ministry",
+      "official_documents": "Official documents",
+      "daily_commodity_price": "Daily Commodity Price",
+      "consumer_price_index": "Consumer Price Index"
+    },
+    "other_link_title": "Other Links",
+    "contact_title": "Contact",
+    "copyright": "Ministry of Commerce. All rights reserved by",
+    "copyright_moc": "Ministry of Commerce"
+  }
+}

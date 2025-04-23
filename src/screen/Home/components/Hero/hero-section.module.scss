@@ -1,0 +1,79 @@
+.font_fam {
+  font-family: "Moul", serif !important;
+}
+
+.font_fam_en {
+  font-weight: 700 !important;
+}
+
+.bannerContainer {
+  background-image: url("/banner-background-01-01.svg");
+  background-size: cover;
+  background-position: center;
+  min-height: 760px;
+  padding: 80px 0px;
+
+  @media screen and (max-width: 992px) {
+    padding-top: 50px;
+  }
+}
+
+.title {
+  max-width: 700px;
+  font-size: 44px;
+  text-align: center;
+  font-family: "Moul", serif !important;
+  text-transform: uppercase;
+  margin-bottom: 46px;
+  line-height: 60px;
+
+  @media screen and (max-width: 992px) {
+    max-width: 500px;
+    font-size: 38px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 5px;
+  }
+}
+
+.bannerCardSlide {
+  &:nth-child(1) {
+    padding-top: 40px !important;
+  }
+
+  &:nth-child(3) {
+    padding-top: 40px !important;
+  }
+
+  @media screen and (max-width: 1200px) {
+    &:nth-child(1) {
+      padding-top: 0px !important;
+    }
+
+    &:nth-child(3) {
+      padding-top: 0px !important;
+    }
+
+    &:nth-child(2) {
+      order: -1;
+    }
+  }
+}
+
+.bannerEcoImg {
+  width: 460px;
+  height: auto;
+  margin-bottom: 46px;
+
+  @media screen and (max-width: 1200px) {
+    margin-top: 40px;
+    width: 460px;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 40px;
+    width: 360px;
+  }
+}

@@ -1,0 +1,65 @@
+
+
+.fileUploadContainer {
+  width: 100%;
+  // max-width: 400px;
+  margin: 0 auto;
+}
+
+.dropzone {
+  border: 2px dashed #cccccc;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  
+
+  // &.hasFile {
+  //   border-style: solid;
+  // }
+}
+
+.uploadIcon {
+  margin-bottom: 10px;
+ 
+}
+
+.selectButton {
+  border: none;
+  font-size: 15px;
+  margin-top: 10px;
+  color: white;
+ 
+}
+
+.selectButton:hover {
+  margin-top: 10px;
+  color: white;
+
+}
+
+.fileInfo {
+  // display: flex;
+  // justify-content: end;
+  // align-items: center;
+  z-index: 100;
+  position: absolute;
+  top: 5;
+  right: 5;
+}
+
+.removeButton {
+  padding: 5px;
+  line-height: 1;
+}
+
+.uploadProgress {
+  margin-top: 10px;
+}
+
+.imagePreview {
+  display: flex;
+  justify-content: center;
+}
